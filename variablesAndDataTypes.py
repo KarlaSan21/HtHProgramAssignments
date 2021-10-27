@@ -50,4 +50,33 @@ print(answer_6)
 print(answer_7)
 print(answer_8)
 
+gift_list = []
+answer_9 = type(list)
+print(answer_9)
 
+grocery_items = {}
+answer_10 =type(dict)
+print(answer_10)
+
+bucket_list = ()
+answer_11 = type(tuple)
+print(answer_11)
+
+# Now let's see some more exercises about converting data types. Let's create a list with values in it.
+
+gift_list = ["legos", "wallet", "perfume"]
+print(gift_list)
+
+# Now let's create a dictionary with values in it.
+
+grocery_list = {
+    "bread" : "whole wheat",
+    "cheese" : "cheddar",
+    "milk" : "two percent"
+}
+print(grocery_list)
+
+# Finally, let's create a tuple with values in it. 
+
+bucket_list = ()
+print(bucket_list)
