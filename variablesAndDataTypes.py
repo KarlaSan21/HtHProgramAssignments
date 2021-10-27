@@ -32,4 +32,22 @@ print(answer_2)
 print(answer_3)
 print(answer_4)
 
+my_grade = "10"
+answer_5 = int(my_grade)
+
+my_temp = 97.70
+answer_6 = int(my_temp)
+
+shoe_price = "69.99"
+answer_7 = float(shoe_price)
+
+gross_world_product = 84.84
+gwp_str = str(gross_world_product)
+answer_8 = "In 2018 gross product of the world (GWP) was " + gwp_str + " in trillion US dollars."
+
+print(answer_5)
+print(answer_6)
+print(answer_7)
+print(answer_8)
+
 
