@@ -62,12 +62,8 @@ bucket_list = ()
 answer_11 = type(tuple)
 print(answer_11)
 
-# Now let's see some more exercises about converting data types. Let's create a list with values in it.
-
 gift_list = ["legos", "wallet", "perfume"]
 print(gift_list)
-
-# Now let's create a dictionary with values in it.
 
 grocery_list = {
     "bread" : "whole wheat",
@@ -76,7 +72,5 @@ grocery_list = {
 }
 print(grocery_list)
 
-# Finally, let's create a tuple with values in it. 
-
-bucket_list = ()
+bucket_list = ("skydiving", "new years at time square", "visit Japan")
 print(bucket_list)
