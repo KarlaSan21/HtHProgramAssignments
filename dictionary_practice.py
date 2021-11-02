@@ -13,11 +13,18 @@ friends_age = {
     "Kierra" : 19
 }
 
-
-rachel_age = friends_age["Rachel"]
-
 chicken_price = prices["chicken"]
 beef_price = prices["beef"]
 cheese_price = prices["cheese"]
 milk_price = prices["milk"]
+
+print(chicken_price, beef_price, cheese_price, milk_price)
+
+pedro_age = friends_age["Pedro"]
+mariana_age = friends_age["Mariana"]
+rachel_age = friends_age["Rachel"]
+kierra_age = friends_age["Kierra"]
+
+print(pedro_age, mariana_age, rachel_age, kierra_age)
+
 
