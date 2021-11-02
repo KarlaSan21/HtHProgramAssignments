@@ -27,4 +27,26 @@ kierra_age = friends_age["Kierra"]
 
 print(pedro_age, mariana_age, rachel_age, kierra_age)
 
+shoes = {
+    "Jordan 13" : 1,
+    "Yeezy" : 8,
+    "Foamposite" : 10,
+    "Air Max" : 5,
+    "SB Dunk" : 20
+}
+
+shoes["SB Dunk"] = 18
+shoes["Yeezy"] = 9
+
+shoes["Yeezy"] = 16
+shoes["SB Dunk"] = 25
+shoes["Jordan 13"] = 8
+shoes["Foamposite"] = 17
+shoes["Air Max"] = 12
+
+shoes["Yeezy"] = 13
+shoes["SB Dunk"] = 22
+shoes["Jordan 13"] = 5
+shoes["Foamposite"] = 14
+shoes["Air Max"] = 9
 
