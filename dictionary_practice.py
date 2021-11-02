@@ -16,3 +16,8 @@ friends_age = {
 
 rachel_age = friends_age["Rachel"]
 
+chicken_price = prices["chicken"]
+beef_price = prices["beef"]
+cheese_price = prices["cheese"]
+milk_price = prices["milk"]
+
