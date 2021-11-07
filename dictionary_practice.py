@@ -1,6 +1,4 @@
 
-## dictionary section
-
 # step 2
 prices = {
     "chicken" : 1.59,
