@@ -76,9 +76,3 @@ del friends_age["Rachel"]
 del shoes["Yeezy"]
 
 print(prices, friends_age, shoes)
-
-## lists section
-
-
-
-
