@@ -7,6 +7,12 @@ prices = {
     "milk" : 2.50
 }
 
+def total_price(x, y) :
+    sum = prices[x] + prices[y]
+    return "The total price of " + x + " and " + y + " is ", sum
+
+print(total_price("beef", "cheese"))
+
 # step 3
 friends_age = {
     "Pedro" : 19,
