@@ -42,3 +42,4 @@ US_cities.pop(7)
 US_cities.remove("Denver")
 
 print(US_cities)
+
