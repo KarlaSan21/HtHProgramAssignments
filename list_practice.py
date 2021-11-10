@@ -9,6 +9,38 @@ US_cities = ["Oakland", "Atlanta", "New York City",
 
 print(US_cities)
 
+def print_city(list) :
+    for x in list :
+        print(x)
+    return 
+
+print(print_city(US_cities))
+
+def reorganize_list(list) :
+    counter = 0
+    while counter < len(list) :
+        city1 = list[counter]
+        city2 = list[counter + 1]
+        
+        if len(city1) >= len(city2) :
+            counter += 1
+            continue
+        elif counter + 1 == len(list) - 1 :
+            break
+        else :
+            list.remove(city1)
+            list.append(city1)
+            counter += 1
+        
+    return list
+
+print(reorganize_list(US_cities))
+
+def sort_list(list) :
+    return sorted(list)
+
+print(sort_list(US_cities))
+
 # step 3
 
 print(US_cities[0], US_cities[3], US_cities[-3])
