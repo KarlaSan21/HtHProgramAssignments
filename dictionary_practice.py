@@ -13,13 +13,34 @@ def total_price(x, y) :
 
 print(total_price("beef", "cheese"))
 
+def price_diff(x, y) :
+    diff = prices[x] - prices[y]
+    return "The difference in price of " + x + " and " + y + " is ", diff
+
+print(price_diff("beef", "cheese"))
+
+
 # step 3
 friends_age = {
     "Pedro" : 19,
     "Mariana" : 19,
-    "Rachel" : 19,
+    "Rachel" : 20,
     "Kierra" : 19
 }
+
+def oldest(dict) :
+    oldest_age = 0
+    name = ''
+
+    for key in dict.keys() :
+        if dict[key] > oldest_age :
+            oldest_age = dict[key]
+            name = key
+    
+    return (name, oldest_age)
+
+print(oldest(friends_age))
+
 
 # step 4
 chicken_price = prices["chicken"]
@@ -45,6 +66,21 @@ shoes = {
     "Air Max" : 5,
     "SB Dunk" : 20
 }
+
+
+def shoe_restock(shoe, num) :
+    shoes[shoe] *= num
+    return shoes
+
+print(shoe_restock("Air Max", 3))
+
+def shoe_clearence(shoe, num) :
+    shoes[shoe] //= num
+    return shoes
+
+print(shoe_clearence("SB Dunk", 4))
+
+
 
 # step 7
 shoes["SB Dunk"] = 18
