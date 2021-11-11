@@ -1,5 +1,6 @@
 import turtle
 import time
+import random
 
 # screen setup
 win = turtle.Screen()
@@ -56,6 +57,20 @@ win.onkey(go_up, "w")
 win.onkey(go_down, "s")
 win.onkey(go_right, "d")
 win.onkey(go_left, "a")
+
+# snake food
+food = turtle.Turtle
+food.speed(0)
+food.shape("circle")
+food.color("yellow")
+food.penup()
+food.shapesize(0.50, 0.50)
+food.goto(0, 0)
+
+if head.distance(food) < 15:
+    x = random.randint(-290, 290)
+    y = random.randint(-290, 290)
+    food.goto(x, y)
 
 # main game loop
 while True:
