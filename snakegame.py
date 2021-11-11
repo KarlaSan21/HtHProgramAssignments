@@ -38,6 +38,11 @@ if len(segments) > 0:
     y = head.ycor()
     segments[0].goto(x, y)
 
+def reset_segments():
+    for segment in segments:
+        segment.goto(10000,10000)
+    segments.clear()
+
 # snake movement function
 def move():
     if head.direction == "up":
@@ -86,13 +91,39 @@ food.penup()
 food.shapesize(0.50, 0.50)
 food.goto(0, 0)
 
-if head.distance(food) < 15:
-    x = random.randint(-290, 290)
-    y = random.randint(-290, 290)
-    food.goto(x, y)
-
 # main game loop
 while True:
+    
+    if head.distance(food) < 15:
+        x = random.randint(-290, 290)
+        y = random.randint(-290, 290)
+        food.goto(x, y)
+
+        for i in range(len(segments) - 1, 0, -1):
+            x = segments[i - 1].xcor()
+            y = segments[i - 1].ycor()
+            segments[i].goto(x, y)
+
+        if len(segments) > 0:
+            x = head.xcor()
+            y = head.ycor()
+            segments[0].goto(x, y)
+
+    # border collisions
+    if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
+        time.sleep(1)
+        head.goto(0, 0)
+        head.direction = "stop"
+        reset_segments()
+
+    # head collisions
+    for segment in segments:
+        if segment.distance(head) < 20:
+            time.sleep(1)
+            head.goto(0, 0)
+            head.direction = "stop"
+            reset_segments()
+    
     win.update()
     move()
     time.sleep(delay)
