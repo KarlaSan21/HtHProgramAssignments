@@ -1,4 +1,5 @@
 import turtle
+import time
 
 # screen setup
 win = turtle.Screen()
@@ -6,6 +7,7 @@ win.title("my snake game")
 win.bgcolor("blue")
 win.setup(width = 600, height = 600)
 win.tracer(0)
+delay = 0.1
 
 # snake setup
 head = turtle.Turtle()
@@ -31,11 +33,34 @@ def move():
         x = head.xcor()
         head.setx(x - 20)
 
+# creating directions
+def go_up():
+    if head.direction != "down":
+        head.direction = "up"
 
- 
+def go_down():
+    if head.direction != "up":
+        head.direction = "down"
+
+def go_right():
+    if head.direction != "left":
+        head.direction = "right"
+
+def go_left():
+    if head.direction != "right":
+        head.direction = "left"
+
+# keyboard binds
+win.listen()
+win.onkey(go_up, "w")
+win.onkey(go_down, "s")
+win.onkey(go_right, "d")
+win.onkey(go_left, "a")
+
 # main game loop
 while True:
     win.update()
     move()
+    time.sleep(delay)
 
 
