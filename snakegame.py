@@ -28,16 +28,6 @@ new_segment.color("gray")
 new_segment.penup()
 segments.append(new_segment)
 
-for i in range(len(segments) - 1, 0, -1):
-    x = segments[i - 1].xcor()
-    y = segments[i - 1].ycor()
-    segments[i].goto(x, y)
-
-if len(segments) > 0:
-    x = head.xcor()
-    y = head.ycor()
-    segments[0].goto(x, y)
-
 def reset_segments():
     for segment in segments:
         segment.goto(10000,10000)
