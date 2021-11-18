@@ -5,7 +5,7 @@ import random
 # screen setup
 win = turtle.Screen()
 win.title("my snake game")
-win.bgcolor("blue")
+win.bgcolor("green")
 win.setup(width = 600, height = 600)
 win.tracer(0)
 delay = 0.1
@@ -38,15 +38,38 @@ def move():
     if head.direction == "up":
         y = head.ycor()
         head.sety(y + 20)
+
+        for i in range(len(segments) - 1, 0, -1):
+            x = segments[i - 1].xcor()
+            y = segments[i - 1].ycor()
+            segments[i].goto(x, y)
+
     if head.direction == "down":
         y = head.ycor()
         head.sety(y - 20)
+
+        for i in range(len(segments) - 1, 0, -1):
+            x = segments[i - 1].xcor()
+            y = segments[i - 1].ycor()
+            segments[i].goto(x, y)
+
     if head.direction == "right":
         x = head.xcor()
         head.setx(x + 20)
+
+        for i in range(len(segments) - 1, 0, -1):
+            x = segments[i - 1].xcor()
+            y = segments[i - 1].ycor()
+            segments[i].goto(x, y)
+
     if head.direction == "left":
         x = head.xcor()
         head.setx(x - 20)
+
+        for i in range(len(segments) - 1, 0, -1):
+            x = segments[i - 1].xcor()
+            y = segments[i - 1].ycor()
+            segments[i].goto(x, y)
 
 # creating directions
 def go_up():
@@ -73,7 +96,7 @@ win.onkey(go_right, "d")
 win.onkey(go_left, "a")
 
 # snake food
-food = turtle.Turtle
+food = turtle.Turtle()
 food.speed(0)
 food.shape("circle")
 food.color("yellow")
@@ -89,15 +112,15 @@ while True:
         y = random.randint(-290, 290)
         food.goto(x, y)
 
-        for i in range(len(segments) - 1, 0, -1):
-            x = segments[i - 1].xcor()
-            y = segments[i - 1].ycor()
-            segments[i].goto(x, y)
-
+        segments.append(new_segment)
         if len(segments) > 0:
             x = head.xcor()
             y = head.ycor()
             segments[0].goto(x, y)
+    
+    win.update()
+
+    move()
 
     # border collisions
     if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
@@ -114,8 +137,6 @@ while True:
             head.direction = "stop"
             reset_segments()
     
-    win.update()
-    move()
     time.sleep(delay)
 
 
