@@ -50,28 +50,28 @@ def userChoice():
             continue
 
         elif choice == "R" or choice == "r":
-            index = user_input("what item do you want to read? ") 
-            read(index)
+            index = int(user_input("what item do you want to read? "))
+            print(read(index))
             continue
 
         elif choice == "U" or choice == "u":
-            updateIndex = user_input("what item do you want to update? ")
+            updateIndex = int(user_input("what item do you want to update? "))
             newItem = user_input("what is the new item? ")
             update(updateIndex, newItem)
             continue
 
         elif choice == "D" or choice == "d":
-            deleteIndex = user_input("what item do you want to delete? ")
+            deleteIndex = int(user_input("what item do you want to delete? "))
             destroy(deleteIndex)
             continue
-        
+
         else:
             end = user_input("are you done? ")
 
             if end == "Y" or end == "y":
                 print(checklist)
                 working = False
-            
+
             else:
                 continue
         
