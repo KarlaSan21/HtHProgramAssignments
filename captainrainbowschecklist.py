@@ -50,8 +50,8 @@ def userChoice():
             continue
 
         elif choice == "R" or choice == "r":
-            item = user_input("what item do you want to read? ") 
-            read(item)
+            index = user_input("what item do you want to read? ") 
+            read(index)
             continue
 
         elif choice == "U" or choice == "u":
