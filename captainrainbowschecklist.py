@@ -21,10 +21,21 @@ def destroy(index):
     checklist.pop(index)
     return "Removed {} from checklist".format(removed)
 
-def showList():
-    for i in len(checklist):
-        print(checklist[i] + " at index " + i + " ")
-        
+def showList(list):
+    items = []
+    for i in list:
+        print(i)
+        items.append(i)
+    return items
+
+def checked(index):
+    unchecked = checklist[index]
+    checklist[index] = "✓ " + unchecked
+    return checklist[index]    
+
+def user_input(prompt):
+    entry = input(prompt)
+    return entry
 
 
 # testing
@@ -32,16 +43,17 @@ def test():
     create("purple sox")
     create("red cloak")
 
+    print(showList(checklist))
+
     print(read(0))
     print(read(1))
 
     update(0, "purple socks")
     destroy(1)
 
-    showList()
-
-
-
     print(read(0))
+    print(showList(checklist))
+    print(checked(0))
+    print(user_input("working? "))
 
 test()
