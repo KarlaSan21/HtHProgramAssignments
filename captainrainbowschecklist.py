@@ -37,23 +37,64 @@ def user_input(prompt):
     entry = input(prompt)
     return entry
 
+def userChoice():
+
+    working = True
+
+    while working:
+        choice = user_input("what function do you want to use? (CREATE, READ, UPDATE, DESTROY) ")
+
+        if choice == "C" or choice == "c":
+            item = user_input("what item do you want to create? ")
+            create(item)
+            continue
+
+        elif choice == "R" or choice == "r":
+            item = user_input("what item do you want to read? ") 
+            read(item)
+            continue
+
+        elif choice == "U" or choice == "u":
+            updateIndex = user_input("what item do you want to update? ")
+            newItem = user_input("what is the new item? ")
+            update(updateIndex, newItem)
+            continue
+
+        elif choice == "D" or choice == "d":
+            deleteIndex = user_input("what item do you want to delete? ")
+            destroy(deleteIndex)
+            continue
+        
+        else:
+            end = user_input("are you done? ")
+
+            if end == "Y" or end == "y":
+                print(checklist)
+                working = False
+            
+            else:
+                continue
+        
+
 
 # testing
 def test():
-    create("purple sox")
-    create("red cloak")
+#    create("purple sox")
+#    create("red cloak")
 
-    print(showList(checklist))
+#    print(showList(checklist))
 
-    print(read(0))
-    print(read(1))
+#    print(read(0))
+#    print(read(1))
 
-    update(0, "purple socks")
-    destroy(1)
+#    update(0, "purple socks")
+#    destroy(1)
 
-    print(read(0))
-    print(showList(checklist))
-    print(checked(0))
-    print(user_input("working? "))
+#    print(read(0))
+#    print(showList(checklist))
+#    print(checked(0))
+#    print(user_input("working? "))
+    userChoice()
+
 
 test()
