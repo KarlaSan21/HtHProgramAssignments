@@ -42,7 +42,7 @@ def userChoice():
     working = True
 
     while working:
-        choice = user_input("what function do you want to use? (CREATE, READ, UPDATE, DESTROY) ")
+        choice = user_input("what function do you want to use? (CREATE, READ, UPDATE, DESTROY, VIEW ALL, SELECT TO CHECKMARK) ")
 
         if choice == "C" or choice == "c":
             item = user_input("what item do you want to create? ")
@@ -63,6 +63,15 @@ def userChoice():
         elif choice == "D" or choice == "d":
             deleteIndex = int(user_input("what item do you want to delete? "))
             destroy(deleteIndex)
+            continue
+
+        elif choice == "V" or choice == "v":
+            showList(checklist)
+            continue
+
+        elif choice == "S" or choice == "s":
+            checkIndex = int(user_input("what item do you want to select to check off? "))
+            checked(checkIndex)
             continue
 
         else:
