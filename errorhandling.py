@@ -62,20 +62,19 @@ else:
     print ("Far out, that's the future!!")
            
 # 4
+class Person:
+    def __init__(self, first_name, last_name):
+        self.first = first_name
+        self.last = last_name
 
-def person(first_name, last_name):
-    first = first_name
-    last = last_name
-    return first + " " + last
+    def speak(self):
+        print("My name is " + self.first + " " + self.last)
 
-def speak(person):
-  print("My name is " + person)
+me = Person("Brandon", "Walsh")
+you = Person("Ethan", "Reed")
 
-me = person("Brandon", "Walsh")
-you = person("Ethan", "Reed")
-
-speak(me)
-speak(you)
+me.speak()
+you.speak()
            
 # 5
 exam_one = int(input("Input exam grade one: "))
