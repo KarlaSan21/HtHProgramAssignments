@@ -9,7 +9,7 @@ highScore = 0
 
 # screen setup
 win = turtle.Screen()
-win.title("my snake game")
+win.title("Snake")
 win.bgcolor("green")
 win.setup(width = 600, height = 600)
 win.tracer(0)
@@ -30,7 +30,7 @@ food.shape("circle")
 food.color("yellow")
 food.penup()
 food.shapesize(0.50, 0.50)
-food.goto(0, 0)
+food.goto(random.randint(-290, 290), random.randint(-290, 290))
 
 # score pen
 pen = turtle.Turtle()
@@ -84,13 +84,14 @@ while True:
     
     win.update()
 
+    # eating food
     if head.distance(food) < 15:
         x = random.randint(-290, 290)
         y = random.randint(-290, 290)
         food.goto(x, y)
 
+        # updating score
         score += 10
-
         if score > highScore:
             highScore = score
 
@@ -100,13 +101,16 @@ while True:
         new_segment.shape("square")
         new_segment.color("gray")
         new_segment.penup()
+        new_segment.goto(head.xcor(), head.ycor())
         segments.append(new_segment)
 
+    # moving snake body after head
     for index in range(len(segments) - 1, 0, -1):
         x = segments[index - 1].xcor()
         y = segments[index - 1].ycor()
         segments[index].goto(x, y)
 
+        # moving snake body
         if len(segments) > 0:
             x = head.xcor()
             y = head.ycor()
@@ -114,26 +118,32 @@ while True:
 
     move()
 
-    # border collisions
-    if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
-        time.sleep(1)
-        head.goto(0, 0)
-        head.direction = "stop"
-        for segment in segments:
-            segment.goto(10000, 10000)
-            segment.clear()
-        score = 0
-
-    # head collisions
+    # head to body collisions
     for segment in segments:
         if segment.distance(head) < 20:
             time.sleep(1)
             head.goto(0, 0)
             head.direction = "stop"
+
+            # reseting snake body
             for segment in segments:
                 segment.goto(10000, 10000)
-                segment.clear()
+            segments.clear()
             score = 0
+
+    # border collisions
+    if head.xcor() > 290 or head.xcor() < -290 or head.ycor() > 290 or head.ycor() < -290:
+        time.sleep(1)
+        head.goto(0, 0)
+        head.direction = "stop"
+
+        # reseting snake body
+        for segment in segments:
+            segment.goto(10000, 10000)
+        segments.clear()
+        score = 0
+
+    
     
 
     # keyboard binds
